@@ -5,7 +5,7 @@ import MenuSection from "@/components/MenuSection";
 import HeroBanner from "@/components/HeroBanner";
 import SplashGate from "@/components/SplashGate";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const categories = await prisma.category.findMany({
