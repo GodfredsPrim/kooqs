@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Claude Code local settings
+.claude/
+
+# Temp / scratch files
+dev_output.txt
+erroe.md
+
+# SQLite dev database
+prisma/dev.db
+prisma/*.db
+
+# Loose image files in root (these belong in public/)
+logo.jpeg
+menu.jpeg
+
+# Next.js
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Runtime uploads (no longer used — images go to Cloudinary)
+public/uploads/
+
+# Debug
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

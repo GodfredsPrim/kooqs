@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: kooqs-takeout
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: NEXTAUTH_SECRET
+        sync: false
+      - key: NEXTAUTH_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: FROM_EMAIL
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: NEXT_PUBLIC_RESTAURANT_NAME
+        sync: false
+      - key: NEXT_PUBLIC_RESTAURANT_PHONE
+        sync: false
+      - key: NEXT_PUBLIC_RESTAURANT_ADDRESS
+        sync: false
+      - key: NEXT_PUBLIC_DELIVERY_FEE
+        sync: false
+      - key: NEXT_PUBLIC_FREE_DELIVERY_THRESHOLD
+        sync: false
+      - key: NEXT_PUBLIC_MOMO_MTN_NUMBER
+        sync: false
+      - key: NEXT_PUBLIC_MOMO_MTN_NAME
+        sync: false
+      - key: NEXT_PUBLIC_MOMO_VODAFONE_NUMBER
+        sync: false
+      - key: NEXT_PUBLIC_MOMO_AIRTELTIGO_NUMBER
+        sync: false
+      - key: NEXT_PUBLIC_MOMO_INSTRUCTIONS
+        sync: false
