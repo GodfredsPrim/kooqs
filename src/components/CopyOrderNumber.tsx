@@ -21,7 +21,7 @@ export default function CopyOrderNumber({ orderNumber }: { orderNumber: string }
         <p className="text-kooqs-red font-black text-2xl tracking-wide">{orderNumber}</p>
         <button
           onClick={copy}
-          className="p-2 rounded-lg bg-kooqs-card border border-kooqs-border hover:border-kooqs-red transition-colors text-kooqs-text-dim hover:text-white"
+          className="p-2 rounded-lg bg-kooqs-card border border-kooqs-border hover:border-kooqs-red transition-colors text-kooqs-text-dim hover:text-kooqs-text"
           title="Copy order number"
         >
           {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} />}

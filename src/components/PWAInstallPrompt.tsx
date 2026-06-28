@@ -73,14 +73,14 @@ export default function PWAInstallPrompt() {
           <Download size={20} className="text-kooqs-red" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-white font-semibold text-sm">Install Kooqs</p>
+          <p className="text-kooqs-text font-semibold text-sm">Install Kooqs</p>
           <p className="text-kooqs-text-dim text-xs">One-tap ordering on your home screen</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <button onClick={handleInstall} className="btn-primary text-xs px-3 py-1.5">
             Install
           </button>
-          <button onClick={handleDismiss} className="text-kooqs-text-dim hover:text-white p-1" aria-label="Dismiss">
+          <button onClick={handleDismiss} className="text-kooqs-text-dim hover:text-kooqs-text p-1" aria-label="Dismiss">
             <X size={16} />
           </button>
         </div>
@@ -95,12 +95,12 @@ export default function PWAInstallPrompt() {
           <Share size={20} className="text-kooqs-red" />
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-white font-semibold text-sm">Install Kooqs</p>
+          <p className="text-kooqs-text font-semibold text-sm">Install Kooqs</p>
           <p className="text-kooqs-text-dim text-xs mt-0.5">
-            Tap <strong className="text-white">Share</strong> then <strong className="text-white">Add to Home Screen</strong> for one-tap ordering
+            Tap <strong className="text-kooqs-text">Share</strong> then <strong className="text-kooqs-text">Add to Home Screen</strong> for one-tap ordering
           </p>
         </div>
-        <button onClick={handleDismiss} className="text-kooqs-text-dim hover:text-white p-1 flex-shrink-0" aria-label="Dismiss">
+        <button onClick={handleDismiss} className="text-kooqs-text-dim hover:text-kooqs-text p-1 flex-shrink-0" aria-label="Dismiss">
           <X size={16} />
         </button>
       </div>

@@ -145,7 +145,7 @@ export default function MenuPage() {
     <div className="p-4 sm:p-6 lg:p-8 mt-14 lg:mt-0">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-white font-black text-2xl sm:text-3xl">Menu Management</h1>
+          <h1 className="text-kooqs-text font-black text-2xl sm:text-3xl">Menu Management</h1>
           <p className="text-kooqs-text-dim text-sm mt-1">{items.length} items across {categories.length} categories</p>
         </div>
         <button onClick={openAdd} className="btn-primary flex items-center gap-2 text-sm">
@@ -157,7 +157,7 @@ export default function MenuPage() {
       <div className="flex gap-2 overflow-x-auto pb-2 mb-6">
         <button
           onClick={() => setActiveCategory("all")}
-          className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${activeCategory === "all" ? "bg-flame text-white border-transparent" : "bg-kooqs-card border-kooqs-border text-kooqs-text-dim hover:text-white"}`}
+          className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${activeCategory === "all" ? "bg-flame text-white border-transparent" : "bg-kooqs-card border-kooqs-border text-kooqs-text-dim hover:text-kooqs-text"}`}
         >
           All ({items.length})
         </button>
@@ -165,7 +165,7 @@ export default function MenuPage() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${activeCategory === cat.id ? "bg-flame text-white border-transparent" : "bg-kooqs-card border-kooqs-border text-kooqs-text-dim hover:text-white"}`}
+            className={`flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${activeCategory === cat.id ? "bg-flame text-white border-transparent" : "bg-kooqs-card border-kooqs-border text-kooqs-text-dim hover:text-kooqs-text"}`}
           >
             {cat.icon} {cat.name}
           </button>
@@ -192,18 +192,18 @@ export default function MenuPage() {
               </div>
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-white font-bold text-sm leading-tight">{item.name}</h3>
+                  <h3 className="text-kooqs-text font-bold text-sm leading-tight">{item.name}</h3>
                   <span className="text-kooqs-red font-black text-sm flex-shrink-0">{formatPrice(item.price)}</span>
                 </div>
                 <p className="text-kooqs-text-dim text-xs mt-1 line-clamp-2">{item.description}</p>
                 <p className="text-kooqs-text-dim text-xs mt-1.5">{item.category?.name}</p>
                 <div className="flex items-center gap-2 mt-3">
-                  <button onClick={() => toggleAvailability(item)} className="flex items-center gap-1 text-xs text-kooqs-text-dim hover:text-white transition-colors">
+                  <button onClick={() => toggleAvailability(item)} className="flex items-center gap-1 text-xs text-kooqs-text-dim hover:text-kooqs-text transition-colors">
                     {item.available ? <ToggleRight size={16} className="text-green-400" /> : <ToggleLeft size={16} />}
                     {item.available ? "Available" : "Hidden"}
                   </button>
                   <div className="flex-1" />
-                  <button onClick={() => openEdit(item)} className="p-1.5 rounded-lg hover:bg-kooqs-muted text-kooqs-text-dim hover:text-white transition-colors">
+                  <button onClick={() => openEdit(item)} className="p-1.5 rounded-lg hover:bg-kooqs-muted text-kooqs-text-dim hover:text-kooqs-text transition-colors">
                     <Pencil size={14} />
                   </button>
                   <button onClick={() => deleteItem(item)} className="p-1.5 rounded-lg hover:bg-red-500/10 text-kooqs-text-dim hover:text-red-400 transition-colors">
@@ -221,8 +221,8 @@ export default function MenuPage() {
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="bg-kooqs-card border border-kooqs-border rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-kooqs-border">
-              <h2 className="text-white font-bold text-lg">{editingItem ? "Edit Item" : "Add New Item"}</h2>
-              <button onClick={() => setShowModal(false)} className="p-1.5 rounded-lg hover:bg-kooqs-muted text-kooqs-text-dim hover:text-white">
+              <h2 className="text-kooqs-text font-bold text-lg">{editingItem ? "Edit Item" : "Add New Item"}</h2>
+              <button onClick={() => setShowModal(false)} className="p-1.5 rounded-lg hover:bg-kooqs-muted text-kooqs-text-dim hover:text-kooqs-text">
                 <X size={18} />
               </button>
             </div>
@@ -279,7 +279,7 @@ export default function MenuPage() {
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full h-28 rounded-xl border-2 border-dashed border-kooqs-border hover:border-kooqs-red transition-colors flex flex-col items-center justify-center gap-2 text-kooqs-text-dim hover:text-white"
+                      className="w-full h-28 rounded-xl border-2 border-dashed border-kooqs-border hover:border-kooqs-red transition-colors flex flex-col items-center justify-center gap-2 text-kooqs-text-dim hover:text-kooqs-text"
                     >
                       <Upload size={20} />
                       <span className="text-xs font-medium">Upload from device / camera</span>

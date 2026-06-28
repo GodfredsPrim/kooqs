@@ -46,7 +46,7 @@ export default function AnalyticsPage() {
   return (
     <div className="p-4 sm:p-6 lg:p-8 mt-14 lg:mt-0">
       <div className="mb-8">
-        <h1 className="text-white font-black text-2xl sm:text-3xl">Analytics</h1>
+        <h1 className="text-kooqs-text font-black text-2xl sm:text-3xl">Analytics</h1>
         <p className="text-kooqs-text-dim text-sm mt-1">Restaurant performance overview</p>
       </div>
 
@@ -57,7 +57,7 @@ export default function AnalyticsPage() {
             <div className={`w-10 h-10 ${stat.bg} rounded-xl flex items-center justify-center mb-3`}>
               <stat.icon size={20} className={stat.color} />
             </div>
-            <p className="text-white font-black text-xl">{stat.value}</p>
+            <p className="text-kooqs-text font-black text-xl">{stat.value}</p>
             <p className="text-kooqs-text-dim text-xs mt-0.5">{stat.label}</p>
             <p className="text-kooqs-text-dim text-xs">{stat.sub}</p>
           </div>
@@ -66,20 +66,20 @@ export default function AnalyticsPage() {
 
       {/* Revenue over 7 days */}
       <div className="card p-5 mb-6">
-        <h2 className="text-white font-bold text-lg mb-1">Revenue Trend (Last 7 Days)</h2>
+        <h2 className="text-kooqs-text font-bold text-lg mb-1">Revenue Trend (Last 7 Days)</h2>
         <p className="text-kooqs-text-dim text-xs mb-5">Daily revenue with order count overlay</p>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={data.revenueByDay} margin={{ left: 0, right: 16 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-            <XAxis dataKey="date" stroke="#444" tick={{ fill: "#888", fontSize: 12 }} axisLine={false} tickLine={false} />
-            <YAxis stroke="#444" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `GhC ${v}`} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgb(var(--border-color))" />
+            <XAxis dataKey="date" stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 12 }} axisLine={false} tickLine={false} />
+            <YAxis stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `GhC ${v}`} />
             <Tooltip
-              contentStyle={{ background: "#1a1a1a", border: "1px solid #333", borderRadius: "8px", color: "#fff" }}
+              contentStyle={{ background: "rgb(var(--bg-card))", border: "1px solid rgb(var(--border-color))", borderRadius: "8px", color: "rgb(var(--text-primary))" }}
               formatter={(value, name) => [name === "revenue" ? formatPrice(value as number) : value, name === "revenue" ? "Revenue" : "Orders"]}
             />
             <Line type="monotone" dataKey="revenue" stroke="#DC1A17" strokeWidth={2.5} dot={{ fill: "#DC1A17", r: 4 }} activeDot={{ r: 6 }} />
             <Line type="monotone" dataKey="orders" stroke="#F97316" strokeWidth={2} strokeDasharray="4 4" dot={false} />
-            <Legend formatter={(v) => <span style={{ color: "#aaa", fontSize: 12 }}>{v === "revenue" ? "Revenue ($)" : "Orders"}</span>} />
+            <Legend formatter={(v) => <span style={{ color: "rgb(var(--text-dim))", fontSize: 12 }}>{v === "revenue" ? "Revenue (GhC)" : "Orders"}</span>} />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -87,14 +87,14 @@ export default function AnalyticsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Top items */}
         <div className="card p-5">
-          <h2 className="text-white font-bold text-lg mb-1">Top Selling Items</h2>
+          <h2 className="text-kooqs-text font-bold text-lg mb-1">Top Selling Items</h2>
           <p className="text-kooqs-text-dim text-xs mb-5">By quantity sold (last 30 days)</p>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={data.topItems.slice(0, 6)} layout="vertical" margin={{ left: 0, right: 16 }}>
-              <XAxis type="number" stroke="#444" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis type="category" dataKey="name" stroke="#444" tick={{ fill: "#ccc", fontSize: 11 }} width={120} axisLine={false} tickLine={false} />
+              <XAxis type="number" stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 11 }} axisLine={false} tickLine={false} />
+              <YAxis type="category" dataKey="name" stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 11 }} width={120} axisLine={false} tickLine={false} />
               <Tooltip
-                contentStyle={{ background: "#1a1a1a", border: "1px solid #333", borderRadius: "8px", color: "#fff" }}
+                contentStyle={{ background: "rgb(var(--bg-card))", border: "1px solid rgb(var(--border-color))", borderRadius: "8px", color: "rgb(var(--text-primary))" }}
                 formatter={(value, name) => [value, name === "count" ? "Units Sold" : "Revenue"]}
               />
               <Bar dataKey="count" fill="url(#barGradient)" radius={[0, 4, 4, 0]} />
@@ -110,7 +110,7 @@ export default function AnalyticsPage() {
 
         {/* Status breakdown */}
         <div className="card p-5">
-          <h2 className="text-white font-bold text-lg mb-1">Order Status Breakdown</h2>
+          <h2 className="text-kooqs-text font-bold text-lg mb-1">Order Status Breakdown</h2>
           <p className="text-kooqs-text-dim text-xs mb-3">All-time distribution</p>
           {pieData.length > 0 ? (
             <ResponsiveContainer width="100%" height={220}>
@@ -121,10 +121,10 @@ export default function AnalyticsPage() {
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ background: "#1a1a1a", border: "1px solid #333", borderRadius: "8px", color: "#fff" }}
+                  contentStyle={{ background: "rgb(var(--bg-card))", border: "1px solid rgb(var(--border-color))", borderRadius: "8px", color: "rgb(var(--text-primary))" }}
                   formatter={(value, name) => [value, String(name).replace(/_/g, " ")]}
                 />
-                <Legend formatter={(v) => <span style={{ color: "#aaa", fontSize: 11 }}>{v}</span>} iconSize={8} />
+                <Legend formatter={(v) => <span style={{ color: "rgb(var(--text-dim))", fontSize: 11 }}>{v}</span>} iconSize={8} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
@@ -136,14 +136,14 @@ export default function AnalyticsPage() {
       {/* Revenue per item table */}
       <div className="card">
         <div className="p-5 border-b border-kooqs-border">
-          <h2 className="text-white font-bold text-lg">Top Items Revenue</h2>
+          <h2 className="text-kooqs-text font-bold text-lg">Top Items Revenue</h2>
         </div>
         <div className="divide-y divide-kooqs-border">
           {data.topItems.map((item, i) => (
             <div key={item.name} className="flex items-center gap-4 p-4">
               <span className="text-kooqs-text-dim text-sm w-6 text-center font-bold">#{i + 1}</span>
               <div className="flex-1">
-                <p className="text-white font-medium text-sm">{item.name}</p>
+                <p className="text-kooqs-text font-medium text-sm">{item.name}</p>
                 <p className="text-kooqs-text-dim text-xs">{item.count} units sold</p>
               </div>
               <span className="text-kooqs-red font-bold text-sm">{formatPrice(item.revenue)}</span>

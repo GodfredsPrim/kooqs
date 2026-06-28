@@ -26,7 +26,7 @@ export default function MenuSection({ categories }: Props) {
           className={`flex-shrink-0 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border ${
             activeCategory === "all"
               ? "bg-flame text-white border-transparent"
-              : "bg-kooqs-card text-kooqs-text-dim border-kooqs-border hover:border-kooqs-red hover:text-white"
+              : "bg-kooqs-card text-kooqs-text-dim border-kooqs-border hover:border-kooqs-red hover:text-kooqs-text"
           }`}
         >
           🍽️ All Items
@@ -37,8 +37,8 @@ export default function MenuSection({ categories }: Props) {
             onClick={() => setActiveCategory(cat.slug)}
             className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border ${
               activeCategory === cat.slug
-                ? "bg-flame text-white border-transparent"
-                : "bg-kooqs-card text-kooqs-text-dim border-kooqs-border hover:border-kooqs-red hover:text-white"
+? "bg-flame text-white border-transparent"
+              : "bg-kooqs-card text-kooqs-text-dim border-kooqs-border hover:border-kooqs-red hover:text-kooqs-text"
             }`}
           >
             <span>{cat.icon}</span>
@@ -57,7 +57,7 @@ export default function MenuSection({ categories }: Props) {
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-2xl">{cat.icon}</span>
                   <div>
-                    <h2 className="text-white font-black text-xl">{cat.name}</h2>
+                    <h2 className="text-kooqs-text font-black text-xl">{cat.name}</h2>
                     {cat.description && (
                       <p className="text-kooqs-text-dim text-xs">{cat.description}</p>
                     )}
@@ -77,7 +77,7 @@ export default function MenuSection({ categories }: Props) {
         <div>
           <div className="flex items-center gap-3 mb-6">
             <span className="text-2xl">{categories.find((c) => c.slug === activeCategory)?.icon}</span>
-            <h2 className="text-white font-black text-2xl">
+            <h2 className="text-kooqs-text font-black text-2xl">
               {categories.find((c) => c.slug === activeCategory)?.name}
             </h2>
           </div>

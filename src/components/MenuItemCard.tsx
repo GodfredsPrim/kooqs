@@ -73,7 +73,7 @@ export default function MenuItemCard({ item }: { item: MenuItem }) {
 
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-white font-bold text-base leading-tight">{item.name}</h3>
+        <h3 className="text-kooqs-text font-bold text-base leading-tight">{item.name}</h3>
         <p className="text-kooqs-text-dim text-xs mt-1.5 line-clamp-2 flex-1">{item.description}</p>
         {item.calories && (
           <p className="text-kooqs-text-dim text-xs mt-2">{item.calories} cal</p>

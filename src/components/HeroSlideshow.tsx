@@ -61,8 +61,8 @@ export default function HeroSlideshow({ images }: Props) {
           />
         </div>
       ))}
-      {/* Dark gradient overlay so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-kooqs-dark/30 via-kooqs-dark/40 to-kooqs-dark" />
+      {/* Dark gradient overlay so text stays readable regardless of theme */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black" />
     </div>
   );
 }

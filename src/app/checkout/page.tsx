@@ -33,7 +33,7 @@ export default function CheckoutPage() {
         <Navbar />
         <div className="flex-1 flex items-center justify-center flex-col gap-4">
           <ShoppingBag size={48} className="text-kooqs-muted" />
-          <p className="text-white font-bold text-xl">Your cart is empty</p>
+          <p className="text-kooqs-text font-bold text-xl">Your cart is empty</p>
           <Link href="/" className="btn-primary">Browse Menu</Link>
         </div>
       </div>
@@ -79,18 +79,18 @@ export default function CheckoutPage() {
     <div className="min-h-screen bg-kooqs-dark">
       <Navbar />
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-kooqs-text-dim hover:text-white text-sm mb-6 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-kooqs-text-dim hover:text-kooqs-text text-sm mb-6 transition-colors">
           <ArrowLeft size={16} /> Back to menu
         </Link>
 
-        <h1 className="text-white font-black text-3xl mb-8">Checkout</h1>
+        <h1 className="text-kooqs-text font-black text-3xl mb-8">Checkout</h1>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Left: Form */}
           <div className="lg:col-span-3 space-y-6">
             {/* Order type */}
             <div className="card p-5">
-              <h2 className="text-white font-bold text-lg mb-4">How would you like your order?</h2>
+              <h2 className="text-kooqs-text font-bold text-lg mb-4">How would you like your order?</h2>
               <div className="grid grid-cols-2 gap-3">
                 {(["pickup", "delivery"] as const).map((type) => (
                   <button
@@ -104,7 +104,7 @@ export default function CheckoutPage() {
                     }`}
                   >
                     <div className="text-2xl mb-1">{type === "pickup" ? "🏃" : "🚗"}</div>
-                    <div className="text-white font-bold capitalize">{type}</div>
+                    <div className="text-kooqs-text font-bold capitalize">{type}</div>
                     <div className="text-kooqs-text-dim text-xs mt-0.5">
                       {type === "pickup" ? "Ready in ~15 min" : `${subtotal >= FREE_THRESHOLD ? "Free!" : formatPrice(DELIVERY_FEE)} delivery`}
                     </div>
@@ -115,7 +115,7 @@ export default function CheckoutPage() {
 
             {/* Contact info */}
             <div className="card p-5">
-              <h2 className="text-white font-bold text-lg mb-4">Your Details</h2>
+              <h2 className="text-kooqs-text font-bold text-lg mb-4">Your Details</h2>
               <div className="space-y-4">
                 <div>
                   <label className="text-kooqs-text-dim text-sm font-medium block mb-1.5">Full Name *</label>
@@ -172,7 +172,7 @@ export default function CheckoutPage() {
           {/* Right: Order summary */}
           <div className="lg:col-span-2">
             <div className="card p-5 sticky top-20">
-              <h2 className="text-white font-bold text-lg mb-4">Order Summary</h2>
+              <h2 className="text-kooqs-text font-bold text-lg mb-4">Order Summary</h2>
               <div className="space-y-3 mb-4">
                 {state.items.map((item) => (
                   <div key={item.menuItem.id} className="flex gap-3 items-center">
@@ -182,10 +182,10 @@ export default function CheckoutPage() {
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="text-white text-sm font-medium line-clamp-1">{item.menuItem.name}</p>
+                      <p className="text-kooqs-text text-sm font-medium line-clamp-1">{item.menuItem.name}</p>
                       <p className="text-kooqs-text-dim text-xs">x{item.quantity}</p>
                     </div>
-                    <span className="text-white text-sm font-semibold">
+                    <span className="text-kooqs-text text-sm font-semibold">
                       {formatPrice(item.menuItem.price * item.quantity)}
                     </span>
                   </div>
@@ -195,18 +195,18 @@ export default function CheckoutPage() {
               <div className="border-t border-kooqs-border pt-4 space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-kooqs-text-dim">Subtotal</span>
-                  <span className="text-white">{formatPrice(subtotal)}</span>
+                  <span className="text-kooqs-text">{formatPrice(subtotal)}</span>
                 </div>
                 {orderType === "delivery" && (
                   <div className="flex justify-between text-sm">
                     <span className="text-kooqs-text-dim">Delivery</span>
-                    <span className={deliveryFee === 0 ? "text-green-400 font-semibold" : "text-white"}>
+                    <span className={deliveryFee === 0 ? "text-green-400 font-semibold" : "text-kooqs-text"}>
                       {deliveryFee === 0 ? "FREE 🎉" : formatPrice(deliveryFee)}
                     </span>
                   </div>
                 )}
                 <div className="flex justify-between font-black text-lg pt-2 border-t border-kooqs-border">
-                  <span className="text-white">Total</span>
+                  <span className="text-kooqs-text">Total</span>
                   <span className="text-kooqs-red">{formatPrice(total)}</span>
                 </div>
               </div>

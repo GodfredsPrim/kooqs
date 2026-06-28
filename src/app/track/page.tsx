@@ -49,7 +49,7 @@ function TrackForm() {
           {/* Logo */}
           <div className="flex flex-col items-center mb-10">
             <Image src="/logo.jpeg" alt="Kooqs" width={72} height={72} className="rounded-full border-2 border-kooqs-red/40 shadow-xl mb-4" />
-            <h1 className="text-white font-black text-3xl text-center">Track Your Order</h1>
+            <h1 className="text-kooqs-text font-black text-3xl text-center">Track Your Order</h1>
             <p className="text-kooqs-text-dim text-sm mt-2 text-center">Enter your order number and the phone you used at checkout</p>
           </div>
 
@@ -120,7 +120,7 @@ function TrackForm() {
           </p>
 
           <div className="flex justify-center mt-6">
-            <Link href="/" className="text-kooqs-text-dim text-sm hover:text-white transition-colors">
+            <Link href="/" className="text-kooqs-text-dim text-sm hover:text-kooqs-text transition-colors">
               ← Back to menu
             </Link>
           </div>

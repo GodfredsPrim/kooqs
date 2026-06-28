@@ -44,7 +44,7 @@ export default async function CustomersPage() {
   return (
     <div className="p-4 sm:p-6 lg:p-8 mt-14 lg:mt-0">
       <div className="mb-8">
-        <h1 className="text-white font-black text-2xl sm:text-3xl">Customers</h1>
+        <h1 className="text-kooqs-text font-black text-2xl sm:text-3xl">Customers</h1>
         <p className="text-kooqs-text-dim text-sm mt-1">{customers.length} unique customers</p>
       </div>
 
@@ -54,21 +54,21 @@ export default async function CustomersPage() {
             <Users size={16} className="text-blue-400" />
             <span className="text-kooqs-text-dim text-xs">Total Customers</span>
           </div>
-          <p className="text-white font-black text-2xl">{customers.length}</p>
+          <p className="text-kooqs-text font-black text-2xl">{customers.length}</p>
         </div>
         <div className="card p-4">
           <div className="flex items-center gap-2 mb-2">
             <DollarSign size={16} className="text-green-400" />
             <span className="text-kooqs-text-dim text-xs">Total Revenue</span>
           </div>
-          <p className="text-white font-black text-2xl">{formatPrice(totalRevenue)}</p>
+          <p className="text-kooqs-text font-black text-2xl">{formatPrice(totalRevenue)}</p>
         </div>
         <div className="card p-4">
           <div className="flex items-center gap-2 mb-2">
             <ShoppingBag size={16} className="text-kooqs-orange" />
             <span className="text-kooqs-text-dim text-xs">Avg Order Value</span>
           </div>
-          <p className="text-white font-black text-2xl">{formatPrice(avgOrderValue)}</p>
+          <p className="text-kooqs-text font-black text-2xl">{formatPrice(avgOrderValue)}</p>
         </div>
       </div>
 
@@ -89,11 +89,11 @@ export default async function CustomersPage() {
                 <tr key={customer.phone} className="hover:bg-kooqs-muted/30 transition-colors">
                   <td className="px-5 py-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-flame rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      <div className="w-8 h-8 bg-flame rounded-full flex items-center justify-center text-kooqs-text font-bold text-sm flex-shrink-0">
                         {customer.name.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <p className="text-white font-medium text-sm">{customer.name}</p>
+                        <p className="text-kooqs-text font-medium text-sm">{customer.name}</p>
                         <p className="text-kooqs-text-dim text-xs">{customer.phone}</p>
                       </div>
                       {i < 3 && (
@@ -105,7 +105,7 @@ export default async function CustomersPage() {
                   </td>
                   <td className="px-5 py-3 text-kooqs-text-dim text-sm hidden sm:table-cell">{customer.phone}</td>
                   <td className="px-5 py-3 text-center">
-                    <span className="text-white font-bold text-sm">{customer.orderCount}</span>
+                    <span className="text-kooqs-text font-bold text-sm">{customer.orderCount}</span>
                   </td>
                   <td className="px-5 py-3 text-right">
                     <span className="text-kooqs-red font-bold text-sm">{formatPrice(customer.totalSpent)}</span>

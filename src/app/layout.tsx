@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { Toaster } from "react-hot-toast";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
@@ -41,10 +42,23 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const themeScript = `
+  (function() {
+    try {
+      var t = localStorage.getItem('kooqs-theme') || 'system';
+      var d = t === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : t;
+      document.documentElement.classList.toggle('dark', d === 'dark');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', d === 'dark' ? '#0A0A0A' : '#FAFAFA');
+    } catch(e) {}
+  })();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {/* Preconnect to Cloudinary for faster image loads */}
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
@@ -70,24 +84,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-startup-image" href="/splash/apple-splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
       </head>
       <body className={inter.className}>
-        <CartProvider>
-          {children}
-          <PWAInstallPrompt />
-          <ServiceWorkerRegister />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                background: "#1a1a1a",
-                color: "#ffffff",
-                border: "1px solid #333",
-                borderRadius: "12px",
-                fontSize: "14px",
-              },
-              success: { iconTheme: { primary: "#DC1A17", secondary: "#fff" } },
-            }}
-          />
-        </CartProvider>
+        <ThemeProvider>
+          <CartProvider>
+            {children}
+            <PWAInstallPrompt />
+            <ServiceWorkerRegister />
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  background: "rgb(var(--bg-card))",
+                  color: "rgb(var(--text-primary))",
+                  border: "1px solid rgb(var(--border-color))",
+                  borderRadius: "12px",
+                  fontSize: "14px",
+                },
+                success: { iconTheme: { primary: "#DC1A17", secondary: "#fff" } },
+              }}
+            />
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

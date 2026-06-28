@@ -87,7 +87,7 @@ export default async function DashboardPage() {
       <DashboardRefresher />
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-white font-black text-2xl sm:text-3xl">Dashboard</h1>
+          <h1 className="text-kooqs-text font-black text-2xl sm:text-3xl">Dashboard</h1>
           <p className="text-kooqs-text-dim text-sm mt-1">Welcome back! Here&apos;s what&apos;s happening.</p>
         </div>
         {pendingCount > 0 && (
@@ -111,7 +111,7 @@ export default async function DashboardPage() {
               </div>
               <ArrowUpRight size={14} className="text-kooqs-text-dim" />
             </div>
-            <p className="text-white font-black text-xl sm:text-2xl">{stat.value}</p>
+            <p className="text-kooqs-text font-black text-xl sm:text-2xl">{stat.value}</p>
             <p className="text-kooqs-text-dim text-xs mt-1">{stat.label}</p>
             <p className="text-kooqs-text-dim text-xs mt-0.5">{stat.sub}</p>
           </div>
@@ -124,7 +124,7 @@ export default async function DashboardPage() {
       {/* Recent orders */}
       <div className="card mt-6">
         <div className="flex items-center justify-between p-5 border-b border-kooqs-border">
-          <h2 className="text-white font-bold text-lg">Recent Orders</h2>
+          <h2 className="text-kooqs-text font-bold text-lg">Recent Orders</h2>
           <Link href="/admin/orders" className="text-kooqs-red text-sm font-medium hover:underline flex items-center gap-1">
             View all <ChevronRight size={14} />
           </Link>
@@ -140,13 +140,13 @@ export default async function DashboardPage() {
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="text-white font-semibold text-sm">{order.customerName}</p>
+                    <p className="text-kooqs-text font-semibold text-sm">{order.customerName}</p>
                     <span className="text-kooqs-red text-xs font-mono">{order.orderNumber}</span>
                   </div>
                   <p className="text-kooqs-text-dim text-xs mt-0.5">{order.items[0]?.name}{order.items.length > 1 ? ` +${order.items.length - 1} more` : ""}</p>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <p className="text-white font-bold text-sm">{formatPrice(order.total)}</p>
+                  <p className="text-kooqs-text font-bold text-sm">{formatPrice(order.total)}</p>
                   <span className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${statusInfo.color}`}>
                     {statusInfo.label}
                   </span>

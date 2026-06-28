@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Fresh. Fast. Flavorful. Order takeout from Kooqs.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0A0A0A",
+    background_color: "#111111",
     theme_color: "#DC1A17",
     orientation: "portrait",
     icons: [
