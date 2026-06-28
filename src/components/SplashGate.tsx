@@ -1,31 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import { useState, useEffect, lazy, Suspense } from "react";
 
-const SplashScreen = dynamic(() => import("./SplashScreen"), { ssr: false });
+const SplashScreen = lazy(() => import("./SplashScreen"));
 
 const SESSION_KEY = "kooqs_splash_shown";
 
 export default function SplashGate({ children }: { children: React.ReactNode }) {
-  // Start true so the dark overlay covers the initial render on first visit.
-  // The effect immediately hides it on repeat same-session visits.
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY)) {
+    try {
+      if (sessionStorage.getItem(SESSION_KEY)) {
+        setShowSplash(false);
+      }
+    } catch {
       setShowSplash(false);
     }
   }, []);
 
   function onComplete() {
-    sessionStorage.setItem(SESSION_KEY, "1");
+    try { sessionStorage.setItem(SESSION_KEY, "1"); } catch {}
     setShowSplash(false);
   }
 
   return (
     <>
-      {showSplash && <SplashScreen onComplete={onComplete} />}
+      {showSplash && (
+        <Suspense fallback={null}>
+          <SplashScreen onComplete={onComplete} />
+        </Suspense>
+      )}
       {children}
     </>
   );

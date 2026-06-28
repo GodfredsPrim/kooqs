@@ -90,9 +90,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <PWAInstallPrompt />
             <ServiceWorkerRegister />
             <Toaster
-              position="top-right"
+              position="bottom-right"
+              gutter={8}
+              containerStyle={{ zIndex: 99999, inset: 0, position: "fixed", pointerEvents: "none" }}
               toastOptions={{
+                className: "toast-responsive",
                 style: {
+                  pointerEvents: "auto",
                   background: "rgb(var(--bg-card))",
                   color: "rgb(var(--text-primary))",
                   border: "1px solid rgb(var(--border-color))",

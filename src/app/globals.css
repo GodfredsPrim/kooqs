@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* react-hot-toast responsive: full-width on mobile, constrained on desktop */
+.toast-responsive {
+  width: calc(100vw - 32px) !important;
+  max-width: calc(100vw - 32px) !important;
+  margin: 0 16px !important;
+}
+@media (min-width: 640px) {
+  .toast-responsive {
+    width: auto !important;
+    max-width: 420px !important;
+    min-width: 380px !important;
+    margin: 0 !important;
+  }
+}
+
 :root {
   --kooqs-red: #DC1A17;
   --kooqs-orange: #F97316;

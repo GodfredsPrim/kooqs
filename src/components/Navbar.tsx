@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { ShoppingCart, MapPin, Phone, Package, Sun, Moon, Monitor } from "lucide-react";
+import { ShoppingCart, MapPin, Phone, Package, Download, Sun, Moon, Monitor, Share, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useTheme } from "@/context/ThemeContext";
+import { usePWAInstall } from "@/hooks/usePWAInstall";
 
 type ThemeOption = "system" | "light" | "dark";
 
@@ -18,6 +19,7 @@ const THEME_OPTIONS: { value: ThemeOption; label: string; icon: typeof Sun }[] =
 export default function Navbar() {
   const { itemCount, toggleCart } = useCart();
   const { theme, setTheme } = useTheme();
+  const { canInstall, isIOS, isStandalone, install, showIOSInstructions, dismissIOSInstructions } = usePWAInstall();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -58,6 +60,17 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
+            {/* Install PWA */}
+            {!isStandalone && (canInstall || isIOS) && (
+              <button
+                onClick={install}
+                className="flex items-center gap-1.5 bg-kooqs-card border border-kooqs-border hover:border-kooqs-red px-3 py-2 rounded-xl transition-all duration-200 group text-kooqs-text-dim hover:text-kooqs-text"
+                aria-label="Install app"
+              >
+                <Download size={16} className="group-hover:text-kooqs-red transition-colors" />
+                <span className="hidden sm:block text-sm font-semibold">Install</span>
+              </button>
+            )}
             {/* Theme Toggle */}
             <div className="relative" ref={ref}>
               <button
@@ -116,6 +129,42 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      {/* iOS install instructions modal */}
+      {showIOSInstructions && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={dismissIOSInstructions}
+        >
+          <div
+            className="card p-6 max-w-sm w-full animate-in slide-in-from-bottom-4 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between mb-4">
+              <h3 className="text-kooqs-text font-bold text-lg">Install Kooqs</h3>
+              <button onClick={dismissIOSInstructions} className="text-kooqs-text-dim hover:text-kooqs-text p-1">
+                <X size={18} />
+              </button>
+            </div>
+            <ol className="space-y-3 text-kooqs-text-dim text-sm">
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-kooqs-red/10 text-kooqs-red font-bold text-xs flex-shrink-0 mt-0.5">1</span>
+                <span>Tap the <strong className="text-kooqs-text">Share</strong> icon <Share size={14} className="inline" /> in the Safari toolbar</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-kooqs-red/10 text-kooqs-red font-bold text-xs flex-shrink-0 mt-0.5">2</span>
+                <span>Scroll down and tap <strong className="text-kooqs-text">Add to Home Screen</strong></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-kooqs-red/10 text-kooqs-red font-bold text-xs flex-shrink-0 mt-0.5">3</span>
+                <span>Tap <strong className="text-kooqs-text">Add</strong> in the top-right corner</span>
+              </li>
+            </ol>
+            <button onClick={dismissIOSInstructions} className="btn-primary w-full mt-6">
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
