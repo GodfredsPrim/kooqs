@@ -29,12 +29,12 @@ export default function CartDrawer() {
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-kooqs-border">
           <div>
-            <h2 className="text-white font-bold text-xl">Your Cart</h2>
+            <h2 className="text-kooqs-text font-bold text-xl">Your Cart</h2>
             <p className="text-kooqs-text-dim text-sm">{state.items.length} item{state.items.length !== 1 ? "s" : ""}</p>
           </div>
           <button
             onClick={() => setCartOpen(false)}
-            className="p-2 rounded-lg hover:bg-kooqs-muted transition-colors text-kooqs-text-dim hover:text-white"
+            className="p-2 rounded-lg hover:bg-kooqs-muted transition-colors text-kooqs-text-dim hover:text-kooqs-text"
           >
             <X size={20} />
           </button>
@@ -60,7 +60,7 @@ export default function CartDrawer() {
           {state.items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-16">
               <ShoppingBag size={48} className="text-kooqs-muted mb-4" />
-              <p className="text-white font-semibold text-lg">Your cart is empty</p>
+              <p className="text-kooqs-text font-semibold text-lg">Your cart is empty</p>
               <p className="text-kooqs-text-dim text-sm mt-1">Add some delicious items!</p>
               <button
                 onClick={() => setCartOpen(false)}
@@ -78,21 +78,21 @@ export default function CartDrawer() {
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-semibold text-sm line-clamp-1">{item.menuItem.name}</p>
+                  <p className="text-kooqs-text font-semibold text-sm line-clamp-1">{item.menuItem.name}</p>
                   <p className="text-kooqs-red font-bold text-sm mt-0.5">{formatPrice(item.menuItem.price)}</p>
                   <div className="flex items-center gap-2 mt-2">
                     <button
                       onClick={() => updateQuantity(item.menuItem.id, item.quantity - 1)}
                       className="w-6 h-6 rounded-full bg-kooqs-card border border-kooqs-border flex items-center justify-center hover:border-kooqs-red transition-colors"
                     >
-                      <Minus size={12} className="text-white" />
+                      <Minus size={12} className="text-kooqs-text" />
                     </button>
-                    <span className="text-white font-bold text-sm w-4 text-center">{item.quantity}</span>
+                    <span className="text-kooqs-text font-bold text-sm w-4 text-center">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.menuItem.id, item.quantity + 1)}
                       className="w-6 h-6 rounded-full bg-kooqs-card border border-kooqs-border flex items-center justify-center hover:border-kooqs-red transition-colors"
                     >
-                      <Plus size={12} className="text-white" />
+                      <Plus size={12} className="text-kooqs-text" />
                     </button>
                     <button
                       onClick={() => removeItem(item.menuItem.id)}
@@ -112,12 +112,12 @@ export default function CartDrawer() {
           <div className="border-t border-kooqs-border p-5 space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-kooqs-text-dim">Subtotal</span>
-              <span className="text-white font-semibold">{formatPrice(subtotal)}</span>
+              <span className="text-kooqs-text font-semibold">{formatPrice(subtotal)}</span>
             </div>
             {subtotal < FREE_THRESHOLD && (
               <div className="flex justify-between text-sm">
                 <span className="text-kooqs-text-dim">Delivery fee</span>
-                <span className="text-white">{formatPrice(DELIVERY_FEE)}</span>
+                <span className="text-kooqs-text">{formatPrice(DELIVERY_FEE)}</span>
               </div>
             )}
             {subtotal >= FREE_THRESHOLD && (

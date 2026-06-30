@@ -29,7 +29,7 @@ export default function AdminSidebar() {
           <div className="flex items-center gap-3">
             <Image src="/logo.jpeg" alt="Kooqs" width={36} height={36} className="rounded-full" />
             <div>
-              <p className="text-white font-black text-sm">Kooqs.Takeout</p>
+              <p className="text-kooqs-text font-black text-sm">Kooqs.Takeout</p>
               <p className="text-kooqs-text-dim text-xs">Admin Panel</p>
             </div>
           </div>
@@ -45,8 +45,8 @@ export default function AdminSidebar() {
                 href={item.href}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group ${
                   active
-                    ? "bg-kooqs-red/10 text-white border border-kooqs-red/20"
-                    : "text-kooqs-text-dim hover:text-white hover:bg-kooqs-muted"
+                    ? "bg-kooqs-red/10 text-kooqs-text border border-kooqs-red/20"
+                    : "text-kooqs-text-dim hover:text-kooqs-text hover:bg-kooqs-muted"
                 }`}
               >
                 <item.icon size={18} className={active ? "text-kooqs-red" : "group-hover:text-kooqs-red transition-colors"} />
@@ -62,7 +62,7 @@ export default function AdminSidebar() {
           <Link
             href="/"
             target="_blank"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-kooqs-text-dim hover:text-white hover:bg-kooqs-muted transition-all"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-kooqs-text-dim hover:text-kooqs-text hover:bg-kooqs-muted transition-all"
           >
             <ExternalLink size={18} />
             <span>View Store</span>
@@ -82,7 +82,7 @@ export default function AdminSidebar() {
         <div className="flex items-center justify-between px-4 h-14">
           <div className="flex items-center gap-2">
             <Image src="/logo.jpeg" alt="Kooqs" width={28} height={28} className="rounded-full" />
-            <span className="text-white font-bold text-sm">Admin</span>
+            <span className="text-kooqs-text font-bold text-sm">Admin</span>
           </div>
           <div className="flex gap-1 overflow-x-auto">
             {navItems.map((item) => (

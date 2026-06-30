@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Image src="/logo.jpeg" alt="Kooqs" width={80} height={80} className="rounded-full mx-auto mb-4 border-2 border-kooqs-red/30" />
-          <h1 className="text-white font-black text-2xl">Kooqs <span className="text-gradient-flame">Admin</span></h1>
+          <h1 className="text-kooqs-text font-black text-2xl">Kooqs <span className="text-gradient-flame">Admin</span></h1>
           <p className="text-kooqs-text-dim text-sm mt-1">Restaurant Management System</p>
         </div>
 

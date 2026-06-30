@@ -128,7 +128,7 @@ export default function AdminOrderWatcher() {
       {/* New order floating banner */}
       {newOrder && (
         <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4">
-          <div className="flex items-center justify-between gap-3 rounded-xl border-2 border-kooqs-red bg-kooqs-dark/95 backdrop-blur shadow-2xl px-4 py-4 animate-bounce">
+          <div className="flex items-center justify-between gap-3 rounded-xl border-2 border-kooqs-red bg-[#0A0A0A]/95 backdrop-blur shadow-2xl px-4 py-4 animate-bounce">
             <div className="flex items-center gap-3 min-w-0">
               <BellRing
                 size={22}
@@ -140,7 +140,7 @@ export default function AdminOrderWatcher() {
                 <p className="text-white text-xs font-bold truncate">
                   {newOrder.orderNumber} — {newOrder.customerName}
                 </p>
-                <p className="text-kooqs-text-dim text-xs truncate">
+                <p className="text-gray-400 text-xs truncate">
                   {newOrder.phone} · {newOrder.orderType}
                 </p>
               </div>
@@ -163,7 +163,7 @@ export default function AdminOrderWatcher() {
               </Link>
               <button
                 onClick={dismiss}
-                className="text-kooqs-text-dim hover:text-white transition-colors p-0.5"
+                className="text-kooqs-text-dim hover:text-kooqs-text transition-colors p-0.5"
               >
                 <X size={15} />
               </button>

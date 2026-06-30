@@ -64,10 +64,10 @@ export default function OrdersPage() {
     <div className="p-4 sm:p-6 lg:p-8 mt-14 lg:mt-0">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-white font-black text-2xl sm:text-3xl">Orders</h1>
+          <h1 className="text-kooqs-text font-black text-2xl sm:text-3xl">Orders</h1>
           <p className="text-kooqs-text-dim text-sm mt-1">{filtered.length} order{filtered.length !== 1 ? "s" : ""}</p>
         </div>
-        <button onClick={fetchOrders} className="p-2 rounded-xl bg-kooqs-card border border-kooqs-border hover:border-kooqs-red transition-colors text-kooqs-text-dim hover:text-white">
+        <button onClick={fetchOrders} className="p-2 rounded-xl bg-kooqs-card border border-kooqs-border hover:border-kooqs-red transition-colors text-kooqs-text-dim hover:text-kooqs-text">
           <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
         </button>
       </div>
@@ -120,7 +120,7 @@ export default function OrdersPage() {
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-white font-bold">{order.customerName}</span>
+                      <span className="text-kooqs-text font-bold">{order.customerName}</span>
                       <span className="text-kooqs-red font-mono text-xs bg-kooqs-red/10 px-2 py-0.5 rounded-full">{order.orderNumber}</span>
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${statusInfo.color}`}>{statusInfo.label}</span>
                     </div>
@@ -136,7 +136,7 @@ export default function OrdersPage() {
                     )}
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <p className="text-white font-black text-lg">{formatPrice(order.total)}</p>
+                    <p className="text-kooqs-text font-black text-lg">{formatPrice(order.total)}</p>
                     {order.estimatedTime && (
                       <p className="text-kooqs-text-dim text-xs flex items-center gap-1 justify-end">
                         <Clock size={11} /> {order.estimatedTime}min

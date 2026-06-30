@@ -46,14 +46,14 @@ export default function DashboardCharts({ weekOrders, ordersByStatus }: Props) {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Revenue chart */}
       <div className="lg:col-span-2 card p-5">
-        <h2 className="text-white font-bold mb-1">Revenue (Last 7 Days)</h2>
+        <h2 className="text-kooqs-text font-bold mb-1">Revenue (Last 7 Days)</h2>
         <p className="text-kooqs-text-dim text-xs mb-5">Daily revenue in GhC</p>
         <ResponsiveContainer width="100%" height={200}>
           <BarChart data={revenueData} barSize={28}>
-            <XAxis dataKey="day" stroke="#444" tick={{ fill: "#888", fontSize: 12 }} axisLine={false} tickLine={false} />
-            <YAxis stroke="#444" tick={{ fill: "#888", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `GhC ${v}`} />
+            <XAxis dataKey="day" stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 12 }} axisLine={false} tickLine={false} />
+            <YAxis stroke="var(--chart-axis)" tick={{ fill: "var(--chart-tick)", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `GhC ${v}`} />
             <Tooltip
-              contentStyle={{ background: "#1a1a1a", border: "1px solid #333", borderRadius: "8px", color: "#fff" }}
+              contentStyle={{ background: "rgb(var(--bg-card))", border: "1px solid rgb(var(--border-color))", borderRadius: "8px", color: "rgb(var(--text-primary))" }}
               formatter={(value: number) => [`GhC ${Math.round(value)}`, "Revenue"]}
               cursor={{ fill: "rgba(220,26,23,0.05)" }}
             />
@@ -70,7 +70,7 @@ export default function DashboardCharts({ weekOrders, ordersByStatus }: Props) {
 
       {/* Order status donut */}
       <div className="card p-5">
-        <h2 className="text-white font-bold mb-1">Orders by Status</h2>
+        <h2 className="text-kooqs-text font-bold mb-1">Orders by Status</h2>
         <p className="text-kooqs-text-dim text-xs mb-3">All time distribution</p>
         {pieData.length > 0 ? (
           <ResponsiveContainer width="100%" height={200}>
@@ -81,11 +81,11 @@ export default function DashboardCharts({ weekOrders, ordersByStatus }: Props) {
                 ))}
               </Pie>
               <Tooltip
-                contentStyle={{ background: "#1a1a1a", border: "1px solid #333", borderRadius: "8px", color: "#fff" }}
+                contentStyle={{ background: "rgb(var(--bg-card))", border: "1px solid rgb(var(--border-color))", borderRadius: "8px", color: "rgb(var(--text-primary))" }}
                 formatter={(value, name) => [value, String(name).replace(/_/g, " ")]}
               />
               <Legend
-                formatter={(value) => <span style={{ color: "#aaa", fontSize: 11 }}>{value}</span>}
+                formatter={(value) => <span style={{ color: "rgb(var(--text-dim))", fontSize: 11 }}>{value}</span>}
                 iconSize={8}
               />
             </PieChart>

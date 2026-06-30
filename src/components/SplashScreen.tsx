@@ -53,10 +53,10 @@ export default function SplashScreen({ onComplete }: Props) {
           <span className="text-white">Kooqs</span>
           <span className="text-gradient-flame">.Takeout</span>
         </h1>
-        <p className="text-kooqs-text-dim mt-3 text-sm font-medium tracking-widest uppercase">
+        <p className="text-gray-400 mt-3 text-sm font-medium tracking-widest uppercase">
           Fresh · Fast · Flavorful
         </p>
-        <p className="text-kooqs-text-dim text-xs mt-1 opacity-60">055 090 7888</p>
+        <p className="text-gray-500 text-xs mt-1 opacity-60">055 090 7888</p>
       </div>
     </div>
   );

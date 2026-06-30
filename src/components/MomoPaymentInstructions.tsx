@@ -42,7 +42,7 @@ export default function MomoPaymentInstructions({ total }: { total: number }) {
 
   return (
     <div className="card p-5">
-      <h2 className="text-white font-bold text-lg mb-1">Payment — Mobile Money</h2>
+      <h2 className="text-kooqs-text font-bold text-lg mb-1">Payment — Mobile Money</h2>
       <p className="text-kooqs-text-dim text-xs mb-4">
         Send <span className="text-kooqs-red font-bold">{formatPrice(total)}</span> to any number below
       </p>
@@ -56,16 +56,16 @@ export default function MomoPaymentInstructions({ total }: { total: number }) {
             <div className="flex items-center gap-2">
               <span className="text-xl leading-none">{net.badge}</span>
               <div>
-                <p className="text-white text-xs font-semibold">{net.label}</p>
+                <p className="text-kooqs-text text-xs font-semibold">{net.label}</p>
                 <p className="text-kooqs-text-dim text-[11px]">{MTN_NAME}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-white font-mono font-bold text-sm">{net.number}</span>
+              <span className="text-kooqs-text font-mono font-bold text-sm">{net.number}</span>
               <button
                 type="button"
                 onClick={() => copyNumber(net.number)}
-                className="p-1.5 rounded-lg bg-kooqs-muted hover:bg-kooqs-border transition-colors text-kooqs-text-dim hover:text-white"
+                className="p-1.5 rounded-lg bg-kooqs-muted hover:bg-kooqs-border transition-colors text-kooqs-text-dim hover:text-kooqs-text"
                 title="Copy number"
               >
                 {copied === net.number ? <Check size={13} className="text-green-400" /> : <Copy size={13} />}
